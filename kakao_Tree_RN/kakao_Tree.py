@@ -3,13 +3,6 @@ import matplotlib.pyplot as plt
 import cv2
 from kakao_Seed import *
 import time
-
-img1 = cv2.imread("asia.jpeg")
-img1 = cv2.resize(img1, (100,100))
-
-img2 = cv2.imread("chisato.jpeg")
-img2 = cv2.resize(img2, (100,100))
-
 class sigmoid:
     def __init__(self, alpha = 0) -> None:
         self.alpha = alpha
@@ -289,11 +282,7 @@ class MLs:
 if __name__ == "__main__":
     models = MLs(le= 0.000000000001)
     # models.add(Conv2D(16,(2,2), InputShape=(30,30,3), acfn= None))
-    models.add(Conv2D(16,(2,2), InputShape=(100,100,3), acfn= sigmoid()))
-    models.add(Conv2D(32, (3,3), acfn= sigmoid()))
-    models.add(Conv2D(64, (3,3), acfn= None))
     # models.add(Conv2D(64, (5,5), acfn= sigmoid()))
-    models.add(flatten())
     # models.add(Dense(32, InputShape=(10)))
     models.add(Dense(32, acfn=reLu(0.3)))
     models.add(Dense(12, acfn= reLu(0.5)))
